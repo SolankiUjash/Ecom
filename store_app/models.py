@@ -32,11 +32,13 @@ class Color(models.Model):
     
 class Filter_Price(models.Model):
     Filter_PRICE = (
+        ('0 TO 1000','0 TO 1000'),
         ('1000 TO 10000','1000 TO 10000'),
         ('10000 TO 20000','10000 TO 20000'),
         ('20000 TO 30000','20000 TO 30000'),
         ('30000 TO 40000','30000 TO 40000'),
         ('40000 TO 50000','40000 TO 50000'),
+        ('50000 TO 100000+','50000 TO 100000+'),
     )
     price = models.CharField(choices = Filter_PRICE,max_length = 60)
 
