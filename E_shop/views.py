@@ -11,3 +11,14 @@ def HOME(request):
         'product' : product,
     }
     return render(request,"Main/index.html",context)
+
+def PRODUCT(request):
+    product = Product.objects.all().filter(status = "PUBLISH")
+    
+
+    context = {
+        'product' : product,
+        
+    }
+    
+    return render(request,"Main/product.html",context)
