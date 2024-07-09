@@ -1,0 +1,137 @@
+{% extends 'Main/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class = "container">
+<br>
+
+{% if product|length < 1 %}
+
+<link rel="stylesheet" href=
+"https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "poppins";
+    }
+    
+    .bg_img {
+        background: url(
+            'https://media.geeksforgeeks.org/wp-content/uploads/20240226131034/2142357.jpg');
+            height: 400px;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    </style>
+    
+ 
+    
+    <section class="py-5">
+        <div class="d-flex justify-content-center 
+        align-items-center flex-column 
+        text-center w-100">
+        <div class="bg_img w-50">
+        </div>
+        <div>
+            <p class="display-4">Looks Like You Are Lost</p>
+            <p>The product you are looking for not available...</p>
+            <a href="{% url 'home' %}"
+            class="text-white text-decoration-none px-4 py-3 
+            bg-success d-inline-block mt-2 rounded">
+            Go to Home
+        </a>
+    </div>
+</div>
+</section>
+
+
+
+
+
+
+{% endif %}
+
+</div>
+
+
+<!-- Shop Page Start  -->
+
+ <div class="shop-category-area pt-100px pb-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                               <!-- Shop Bottom Area Start -->
+                <div class="shop-bottom-area">
+                    <!-- Tab Content Area Start -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="shop-grid">
+                                    <div class="row mb-n-30px">
+                                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">
+                                            <!-- Single Prodect -->
+
+                                            {% for prod in product %}
+                                            <div class="product">
+                                                <span class="badges">
+                                                    <span class="new">{{prod.condition}}</span>
+                                                </span>
+                                                <div class="thumb">
+                                                    <a href="single-product.html" class="image">
+                                                        <img src="/{{prod.image}}" alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <span class="category"><a href="#">{{prod.categories}}</a></span>
+                                                    <h5 class="title"><a href="single-product.html">{{prod.name |truncatewords:10}}
+                                                    </a>
+                                                </h5>
+                                                <span class="price">
+                                                    <span class="new">₹ {{prod.price}}</span>
+                                                </span>
+                                            </div>
+                                            <div class="actions">
+                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
+                                                    class="pe-7s-shopbag"></i></button>
+                                                    <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
+                                                        class="pe-7s-like"></i></button>
+                                                        <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal-{{forloop.counter}}"><i class="pe-7s-look"></i></button>
+                                                        <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
+                                                            class="pe-7s-refresh-2"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                       
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    </div>
+                    <!-- Tab Content End Here-->
+                    
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content%}

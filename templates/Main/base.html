@@ -59,8 +59,8 @@
                         <div class="col d-none d-lg-block">
                             <div class="top-nav">
                                 <ul>
-                                    <li><a href="tel:0123456789"><i class="bi bi-phone"></i> +012 3456 789</a></li>
-                                    <li><a href="mailto:demo@example.com"><i class="bi bi-envelope"></i> demo@example.com</a></li>
+                                    <li><a href="tel:9316003088"><i class="bi bi-phone"></i> +91 9316003088</a></li>
+                                    <li><a href="mailto:solankiujash2802@gmail.com"><i class="bi bi-envelope"></i> solankiujash2802@gmail.com</a></li>
                                     <li><a href="my-account.html"><i class="bi bi-person"></i> Account</a></li>
                                 </ul>
                             </div>
@@ -75,12 +75,12 @@
                     <div class="row justify-content-between align-items-center">
                         <div class="col-lg-3 col">
                             <div class="header-logo">
-                                <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt="Site Logo" /></a>
+                                <a href="{% url 'home' %}"><img src="{% static 'assets/images/logo/logo.png' %}" alt="Site Logo" /></a>
                             </div>
                         </div>
                         <div class="col-lg-6 d-none d-lg-block">
                             <div class="search-element">
-                                <form action="#" method="get">
+                                <form action="/search/?query=" method="get">
                                     <input type="text" placeholder="Search" name="query" id="query">
                                     <button><i class="pe-7s-search"></i></button>
                                 </form>
@@ -114,7 +114,7 @@
                     <div class="row justify-content-between align-items-center">
                         <div class="col-lg-3 col">
                             <div class="header-logo">
-                                <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt="Site Logo" /></a>
+                                <a href="{% url 'home' %}"><img src="{% static 'assets/images/logo/logo.png' %}" alt="Site Logo" /></a>
                             </div>
                         </div>
                         <div class="col-lg-6 d-none d-lg-block">
@@ -542,7 +542,7 @@
                             <div class="col-md-6 col-lg-3 mb-md-30px mb-lm-30px">
                                 <div class="single-wedge">
                                     <div class="footer-logo">
-                                        <a href="index.html"><img src="assets/images/logo/footer-logo.png" alt=""></a>
+                                        <a href="{% url 'home' %}"><img src="assets/images/logo/footer-logo.png" alt=""></a>
                                     </div>
                                     <p class="about-text">Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore
                                     </p>
@@ -696,10 +696,10 @@
                                 </div> {% endcomment %}
                                 <p class="mt-30px">{{i.description |truncatewords:50}}</p>
                                 <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <span>SKU:</span>
+                                    <span>Color: </span>
                                     <ul class="d-flex">
                                         <li>
-                                            <a href="#">Ch-256xl</a>
+                                            <a href="#">{{i.color}}</a>
                                         </li>
                                     </ul>
                                 </div>
