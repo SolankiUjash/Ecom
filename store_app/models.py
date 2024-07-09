@@ -17,6 +17,7 @@ class Categories(models.Model):
         return self.name
     
 
+    
 class Brand(models.Model):
     name = models.CharField(max_length = 200)
     

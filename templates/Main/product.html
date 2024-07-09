@@ -2,7 +2,6 @@
 {% load static %}
 {% block content %}
 
-
 <!-- Shop Page Start  -->
 <div class="shop-category-area pt-100px pb-100px">
     <div class="container">
@@ -10,24 +9,25 @@
             <div class="col-lg-9 order-lg-last col-md-12 order-md-first">
                 <!-- Shop Top Area Start -->
                 <div class="shop-top-bar d-flex">
-                    <p class="compare-product"> <span>12</span> Product Found of <span>30</span></p>
+                    <p class="compare-product"> <span>{{cproduct}}</span> Product Found of <span>{{totalProduct}}</span></p>
                     <!-- Left Side End -->
                     <div class="shop-tab nav">
                         <button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab">
-                            <i class="fa fa-th" aria-hidden="true"></i>
+                            <i class="bi bi-grid" aria-hidden="true"></i>
                         </button>
                         <button data-bs-target="#shop-list" data-bs-toggle="tab">
-                            <i class="fa fa-list" aria-hidden="true"></i>
+                            <i class="bi bi-list" aria-hidden="true"></i>
                         </button>
                     </div>
                     <!-- Right Side Start -->
+                    
                     <div class="select-shoing-wrap d-flex align-items-center">
                         <div class="shot-product">
                             <p>Sort By:</p>
                         </div>
                         <!-- Single Wedge End -->
                         <div class="header-bottom-set dropdown">
-                            <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown">Default <i class="fa fa-angle-down"></i></button>
+                            <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown">Default <i class="bi bi-arrow-down"></i></button>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li><a class="dropdown-item" href="#">Name, A to Z</a></li>
                                 <li><a class="dropdown-item" href="#">Name, Z to A</a></li>
@@ -119,7 +119,7 @@
                                                     <div class="content">
                                                         <span class="category"><a href="#">{{prod.categories}}</a></span>
                                                         <h5 class="title"><a href="single-product.html">{{prod.name |truncatewords:4}}</a></h5>
-                                                        <p>{{prod.description | truncatewords:30}}</p>
+                                                        <p>{{prod.information | truncatewords:30}}</p>
                                                     </div>
                                                     <div class="box-inner">
                                                         <span class="price">
@@ -150,12 +150,12 @@
                     <div class="pro-pagination-style text-center text-lg-end" data-aos="fade-up" data-aos-delay="200">
                         <div class="pages">
                             <ul>
-                                <li class="li"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a>
+                                <li class="li"><a class="page-link" href="#"><i class="bi bi-arrow-left"></i></a>
                                 </li>
                                 <li class="li"><a class="page-link" href="#">1</a></li>
                                 <li class="li"><a class="page-link active" href="#">2</a></li>
                                 <li class="li"><a class="page-link" href="#">3</a></li>
-                                <li class="li"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
+                                <li class="li"><a class="page-link" href="#"><i class="bi bi-arrow-right"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -172,20 +172,12 @@
                         <h4 class="sidebar-title">Top Categories</h4>
                         <div class="sidebar-widget-category">
                             <ul>
-                                <li><a href="#" class="selected m-0"> All
-                                        <span>(65)</span> </a></li>
-                                <li><a href="#" class=""> Computer
-                                        <span>(12)</span> </a></li>
-                                <li><a href="#" class=""> Covid-19
-                                        <span>(22)</span> </a></li>
-                                <li><a href="#" class=""> Electronics
-                                        <span>(19)</span> </a></li>
-                                <li><a href="#" class=""> Frame Sunglasses
-                                        <span>(17)</span> </a></li>
-                                <li><a href="#" class=""> Furniture
-                                        <span>(7)</span> </a></li>
-                                <li><a href="#" class=""> Genuine Leather
-                                        <span>(9)</span> </a></li>
+                                <li><a href="{% url 'product' %}" class="selected m-0"> All Products
+                                         </a></li>
+                                        {% for cat in categories %}
+                                        <li><a href="?categories={{cat.id}}" class=""> {{cat.name}}  </a></li>
+                                        {% endfor %}
+                                
                             </ul>
                         </div>
                     </div>
@@ -194,9 +186,12 @@
                         <h4 class="sidebar-title">Price Filter</h4>
                         <div class="price-filter">
                             <div class="price-slider-amount">
-                                <input type="text" id="amount" class="p-0 h-auto lh-1" name="price" placeholder="Add Your Price" />
+                            
+                                {% for fp in filterprice %}
+                                <li><a href="?filter_price={{fp.id}}" class=""  style = "color:grey;" > {{fp.price}} </a></li>
+                                {% endfor %}
                             </div>
-                            <div id="slider-range"></div>
+                         
                         </div>
                     </div>
                     <!-- Sidebar single item -->
@@ -204,51 +199,22 @@
                         <h4 class="sidebar-title">Color</h4>
                         <div class="sidebar-widget-color">
                             <ul class="d-flex flex-wrap">
-                                <li><a href="#" class="color-1"></a></li>
-                                <li><a href="#" class="color-2"></a></li>
-                                <li><a href="#" class="color-3"></a></li>
-                                <li><a href="#" class="color-4"></a></li>
-                                <li><a href="#" class="color-5"></a></li>
-                                <li><a href="#" class="color-6"></a></li>
-                                <li><a href="#" class="color-7"></a></li>
-                                <li><a href="#" class="color-8"></a></li>
-                                <li><a href="#" class="color-9"></a></li>
-                                <li><a href="#" class="color-10"></a></li>
-                                <li><a href="#" class="color-11"></a></li>
-                                <li><a href="#" class="color-12"></a></li>
-                                <li><a href="#" class="color-13"></a></li>
-                                <li><a href="#" class="color-14"></a></li>
+                                {% for col in color %}
+                                <li><a href="?color={{col.id}}" style = " background-color : {{col.code}};"></a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
-                    <!-- Sidebar single item -->
-                    <div class="sidebar-widget">
-                        <h4 class="sidebar-title">Size</h4>
-                        <div class="sidebar-widget-size">
-                            <ul>
-                                <li><a href="#" class="selected m-0"> All
-                                        <span>(6)</span> </a></li>
-                                <li><a href="#" class=""> S <span>(12)</span> </a>
-                                </li>
-                                <li><a href="#" class=""> M <span>(21)</span> </a>
-                                </li>
-                                <li><a href="#" class=""> L <span>(16)</span> </a>
-                                </li>
-                                <li><a href="#" class=""> XL <span>(22)</span> </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                  
                     <!-- Sidebar single item -->
                     <div class="sidebar-widget">
                         <h4 class="sidebar-title">Brands</h4>
                         <div class="sidebar-widget-brand">
                             <ul>
-                                <li><a href="#" class="selected m-0"> Lakmeeto<span>(65)</span> </a></li>
-                                <li><a href="#" class=""> Beautifill <span>(14)</span></a></li>
-                                <li><a href="#" class=""> Made In GD <span>(21)</span></a></li>
-                                <li><a href="#" class=""> Pecifico <span>(16)</span></a></li>
-                                <li><a href="#" class=""> Xlovgtir<span>(12)</span></a></li>
+                                {% for brand in brand %}
+                                <li><a href="?brand={{brand.id}}" class="">{{brand.name}} </a></li>
+                                {% endfor %}
+                                
                             </ul>
                         </div>
                     </div>
