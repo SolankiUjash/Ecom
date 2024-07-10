@@ -121,7 +121,7 @@
                                 <span class="new">{{prod.condition}}</span>
                             </span>
                             <div class="thumb">
-                                <a href="single-product.html" class="image">
+                                <a href="products/{{prod.id}}" class="image">
                                     
                                     <!-- template.html -->
                                     <img src="{{prod.image}}" alt="Image" style = "height : 250px;">
@@ -131,9 +131,9 @@
                                 <br>
                             </div>
                             <div class="content">
-                                <span class="category"><a href="#">{{prod.categories}}</a></span>
+                                <span class="category">{{prod.categories}}</span>
                                 
-                                <h5 class="title"><a href="single-product.html">{{prod.name |truncatewords:4}}
+                                <h5 class="title"><a href="products/{{prod.id}}">{{prod.name |truncatewords:4}}
                                 </a>
                             </h5>
                             <span class="price">

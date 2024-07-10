@@ -77,8 +77,20 @@ def PRODUCT(request):
 
 def SEARCH(request):
     query = request.GET.get('query')
-    product = Product.objects.filter(name__icontains = query)
-    context = {
-        'product':product
-    }
+    if query != "":
+        product = Product.objects.filter(name__icontains = query)
+        context = {
+            'product':product
+        }
+    else:
+        return render(request,"Main/search.html",{})
+
     return render(request,"Main/search.html",context)
+
+def PRODUCT_DETAIL_PAGE(request,id):
+    prod = Product.objects.filter(id = id).first()
+    
+    context = {
+        'prod':prod
+    }
+    return render(request,"Main/single_product.html",context)

@@ -641,14 +641,14 @@
     </div>
     <!-- Modal -->
 
-    {% for i in product%}
+    {% for i in product %}
     <div class="modal modal-2 fade" id="exampleModal-{{forloop.counter}}" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <i class="pe-7s-close"></i></button>
                     <div class="row">
-                        <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
+                      <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
                             <!-- Swiper -->
                             <div class="swiper-container gallery-top">
                                 <div class="swiper-wrapper">
@@ -657,7 +657,9 @@
                                         <img class="img-responsive m-auto" src="/{{img.image}}" alt="">
                                     </div>
                                     {% endfor %}
-            
+         
+
+    
                                 </div>
                             </div>
                             <div class="swiper-container gallery-thumbs mt-20px slider-nav-style-1 small-nav">
@@ -675,7 +677,9 @@
                                     <div class="swiper-button-prev"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
+                         
+
                         <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
                             <div class="product-details-content quickview-content">
                                 <h2> {{i.name |truncatewords:10}}</h2>
